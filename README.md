@@ -1,5 +1,3 @@
-# moray.github.io
-MORAY Mediaplayer
 <!doctype html>
 <html lang="en">
 <head>
