@@ -1,2 +1,99 @@
 # moray.github.io
 MORAY Mediaplayer
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#03142e" />
+  <meta name="description" content="MORAY MediaPlayer — a liberated IPTV player with DLNA and webcam/IP camera support." />
+  <title>MORAY MediaPlayer | Sign in & Activate</title>
+
+  <!-- Orbitron is a close web-font match to the futuristic ORAY wordmark style. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="hero" aria-label="MORAY MediaPlayer sign-on page">
+    <div class="shade" aria-hidden="true"></div>
+
+    <section class="auth-card" aria-labelledby="signin-title">
+      <header class="card-header">
+        <p class="eyebrow">MORAY MEDIAPLAYER</p>
+        <h1 id="signin-title">Sign in to MORAY</h1>
+        <p class="lead">The liberated IPTV player with DLNA and webcam support.</p>
+      </header>
+
+      <form id="signin-form" class="signin-form" novalidate>
+        <label class="field">
+          <span class="sr-only">Email address</span>
+          <span class="field-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z"/><path d="m5 7 7 6 7-6"/></svg>
+          </span>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="Email address" required />
+        </label>
+
+        <label class="field">
+          <span class="sr-only">Password</span>
+          <span class="field-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          </span>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Password" required />
+          <button id="password-toggle" class="icon-button" type="button" aria-label="Show password" title="Show password">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M2.5 12s3.5-5 9.5-5 9.5 5 9.5 5-3.5 5-9.5 5-9.5-5-9.5-5Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+          </button>
+        </label>
+
+        <a class="paypal-button" href="https://paypal.me/FBADMurray" target="_blank" rel="noopener noreferrer">
+          <span class="paypal-mark" aria-hidden="true">P</span>
+          <span>Activate with PayPal</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="pay-caption" href="https://paypal.me/FBADMurray" target="_blank" rel="noopener noreferrer">
+          Get your liberated IPTV player with DLNA &amp; webcam support <span aria-hidden="true">↗</span>
+        </a>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <section class="capabilities" aria-labelledby="capabilities-title">
+          <h2 id="capabilities-title">What MORAY can do</h2>
+          <ul>
+            <li>
+              <span class="feature-icon" aria-hidden="true">▣</span>
+              <span>Stream IPTV playlists smoothly over LAN</span>
+            </li>
+            <li>
+              <span class="feature-icon" aria-hidden="true">◇</span>
+              <span>Built-in DLNA Digital Media Renderer support</span>
+            </li>
+            <li>
+              <span class="feature-icon" aria-hidden="true">◉</span>
+              <span>Direct webcam, RTSP and IP camera viewing</span>
+            </li>
+            <li>
+              <span class="feature-icon" aria-hidden="true">✦</span>
+              <span>Clean playback, modern controls and simple activation</span>
+            </li>
+          </ul>
+        </section>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="signin-row">
+          <span>Already activated?</span>
+          <button class="signin-link" type="submit">Sign in <span aria-hidden="true">→</span></button>
+        </div>
+
+        <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <p class="tagline" aria-hidden="true">MEDIA WITHOUT LIMITS <span></span></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
