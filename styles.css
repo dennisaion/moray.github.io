@@ -1,4 +1,3 @@
-```css
 :root {
   --bg: #020b1e;
   --panel: rgba(3, 25, 62, 0.62);
@@ -14,303 +13,130 @@
   --radius: 22px;
 }
 
-/* =========================================================
-   GLOBAL / VIEWPORT
-   ========================================================= */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
 body {
-  width: 100%;
-  min-width: 100%;
-  height: 100%;
-  min-height: 100%;
   margin: 0;
-  padding: 0;
-}
-
-html {
-  overflow-x: hidden;
-}
-
-body {
-  width: 100vw;
-
-  /* Old browser / webOS fallback */
-  min-height: 100vh;
-
-  /* Modern viewport sizing */
-  min-height: 100dvh;
-
-  overflow-x: hidden;
-
   background: var(--bg);
   color: var(--text);
   font-family: "Rajdhani", "Segoe UI", Arial, sans-serif;
 }
-
-button,
-input {
-  font: inherit;
-}
-
-a {
-  color: inherit;
-}
-
-/* =========================================================
-   HERO / FULL DISPLAY AREA
-   ========================================================= */
+button, input { font: inherit; }
+a { color: inherit; }
 
 .hero {
   position: relative;
-
-  width: 100%;
-  max-width: 100vw;
-
-  min-height: 100vh;
-  min-height: 100dvh;
-
+  min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
-
   background-color: var(--bg);
   background-image: url("assets/hero.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-
   display: flex;
   align-items: center;
-
-  /*
-   * Automatically scales with both viewport width and height.
-   */
-  padding:
-    clamp(20px, 4vh, 72px)
-    clamp(20px, 5vw, 92px);
+  padding: clamp(32px, 6vw, 92px);
 }
 
 .shade {
   position: absolute;
   inset: 0;
   z-index: -1;
-
-  width: 100%;
-  height: 100%;
-
   background:
-    radial-gradient(
-      circle at 25% 48%,
-      rgba(10, 83, 170, .22),
-      transparent 38%
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 7, 25, .68) 0%,
-      rgba(0, 10, 30, .28) 43%,
-      rgba(0, 6, 21, .04) 70%
-    );
+    radial-gradient(circle at 25% 48%, rgba(10, 83, 170, .22), transparent 38%),
+    linear-gradient(90deg, rgba(0, 7, 25, .68) 0%, rgba(0, 10, 30, .28) 43%, rgba(0, 6, 21, .04) 70%);
 }
 
-/* =========================================================
-   AUTHENTICATION CARD
-   ========================================================= */
-
 .auth-card {
-  position: relative;
-  z-index: 2;
-
-  /*
-   * Original maximum width retained,
-   * but card can never exceed available display width.
-   */
   width: min(620px, 47vw);
-  max-width: 100%;
-
-  /*
-   * Prevent card from extending beyond the display vertically.
-   * On short displays it becomes internally scrollable.
-   */
-  max-height: calc(100vh - 40px);
-  max-height: calc(100dvh - 40px);
-
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  padding: clamp(24px, 3.4vw, 52px);
-
+  padding: clamp(28px, 3.4vw, 52px);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
-
   background:
-    linear-gradient(
-      145deg,
-      rgba(17, 72, 139, .26),
-      rgba(1, 13, 40, .68)
-    ),
+    linear-gradient(145deg, rgba(17, 72, 139, .26), rgba(1, 13, 40, .68)),
     var(--panel);
-
   box-shadow:
     0 24px 70px rgba(0, 0, 0, .48),
     inset 0 1px 0 rgba(255, 255, 255, .08),
     0 0 28px rgba(0, 131, 255, .13);
-
   backdrop-filter: blur(16px) saturate(126%);
   -webkit-backdrop-filter: blur(16px) saturate(126%);
 }
 
-/*
- * Ensure child elements never force the card wider.
- */
-.card-header,
-.signin-form,
-.field,
-.field input,
-.paypal-button,
-.pay-caption,
-.divider,
-.capabilities,
-.signin-row,
-.status-message {
-  width: 100%;
-  max-width: 100%;
-}
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
 .eyebrow {
   margin: 0 0 8px;
-
   color: #57dfff;
-
   font-family: "Orbitron", "Segoe UI", sans-serif;
-  font-size: clamp(10px, .72vw, 11px);
+  font-size: 11px;
   letter-spacing: .22em;
   font-weight: 500;
 }
 
-h1,
-h2,
-.paypal-button,
-.signin-link {
+h1, h2, .paypal-button, .signin-link {
   font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
 }
 
 h1 {
   margin: 0;
-
-  font-size: clamp(29px, 3vw, 47px);
+  font-size: clamp(30px, 3vw, 47px);
   line-height: 1.08;
   font-weight: 500;
   letter-spacing: .015em;
-
   text-shadow: 0 0 18px rgba(105, 198, 255, .18);
 }
 
 .lead {
   margin: 12px 0 26px;
-
   color: var(--muted);
-
-  font-size: clamp(17px, 1.4vw, 21px);
+  font-size: clamp(18px, 1.4vw, 21px);
   line-height: 1.4;
 }
 
-/* =========================================================
-   SIGN-IN FORM
-   ========================================================= */
-
-.signin-form {
-  display: grid;
-  gap: clamp(10px, 1.2vh, 13px);
-}
+.signin-form { display: grid; gap: 13px; }
 
 .field {
   position: relative;
-
   display: flex;
   align-items: center;
-
-  width: 100%;
-  min-height: clamp(54px, 5.8vh, 62px);
-
+  min-height: 62px;
   border: 1px solid rgba(114, 187, 255, .55);
   border-radius: 13px;
-
   background: rgba(0, 17, 49, .58);
-
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, .015);
-
-  transition:
-    border-color .18s ease,
-    box-shadow .18s ease,
-    background .18s ease;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .015);
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
 }
-
 .field:focus-within {
   border-color: var(--focus);
-
   background: rgba(0, 29, 71, .72);
-
-  box-shadow:
-    0 0 0 3px rgba(33, 203, 255, .10),
-    0 0 22px rgba(16, 130, 255, .12);
+  box-shadow: 0 0 0 3px rgba(33, 203, 255, .10), 0 0 22px rgba(16, 130, 255, .12);
 }
-
 .field input {
   width: 100%;
-  min-width: 0;
-
-  height: clamp(52px, 5.6vh, 60px);
-
+  height: 60px;
   padding: 0 54px 0 58px;
-
   border: 0;
   outline: 0;
-
   color: #f5fbff;
   background: transparent;
-
-  font-size: clamp(17px, 1.3vw, 20px);
+  font-size: 20px;
   font-weight: 500;
 }
-
-.field input::placeholder {
-  color: #86a3c7;
-  opacity: .92;
-}
-
-/* =========================================================
-   FIELD ICONS
-   ========================================================= */
+.field input::placeholder { color: #86a3c7; opacity: .92; }
 
 .field-icon {
   position: absolute;
   left: 18px;
-
   width: 26px;
   height: 26px;
-
   color: #cce9ff;
-
   display: grid;
   place-items: center;
 }
-
 .field-icon svg,
 .icon-button svg {
   width: 24px;
   height: 24px;
-
   stroke: currentColor;
   stroke-width: 1.65;
 }
@@ -318,585 +144,184 @@ h1 {
 .icon-button {
   position: absolute;
   right: 14px;
-
   display: grid;
   place-items: center;
-
   width: 38px;
   height: 38px;
-
   border: 0;
   border-radius: 50%;
-
   color: #bfe7ff;
   background: transparent;
-
   cursor: pointer;
 }
-
-.icon-button:hover,
-.icon-button:focus-visible {
-  background: rgba(82, 195, 255, .12);
-  outline: none;
-}
-
-/* =========================================================
-   PAYPAL ACTIVATION
-   ========================================================= */
+.icon-button:hover, .icon-button:focus-visible { background: rgba(82, 195, 255, .12); outline: none; }
 
 .paypal-button {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-
   gap: 13px;
-
   margin-top: 8px;
-
-  min-height: clamp(62px, 6.5vh, 70px);
-
-  padding: 0 clamp(17px, 2vw, 24px);
-
+  min-height: 70px;
+  padding: 0 24px;
   border-radius: 13px;
-  border: 1px solid rgba(112, 235, 255, .92);
-
   text-decoration: none;
-
   color: white;
-
-  font-size: clamp(17px, 1.6vw, 23px);
+  font-size: clamp(18px, 1.6vw, 23px);
   font-weight: 500;
   letter-spacing: .015em;
-
-  background:
-    linear-gradient(
-      100deg,
-      #13d9ff 0%,
-      #1686ff 42%,
-      #154cff 100%
-    );
-
-  box-shadow:
-    0 0 30px rgba(12, 123, 255, .28),
-    inset 0 1px 0 rgba(255, 255, 255, .24);
-
-  transition:
-    transform .16s ease,
-    filter .16s ease,
-    box-shadow .16s ease;
+  background: linear-gradient(100deg, #13d9ff 0%, #1686ff 42%, #154cff 100%);
+  border: 1px solid rgba(112, 235, 255, .92);
+  box-shadow: 0 0 30px rgba(12, 123, 255, .28), inset 0 1px 0 rgba(255,255,255,.24);
+  transition: transform .16s ease, filter .16s ease, box-shadow .16s ease;
 }
-
 .paypal-button:hover {
   transform: translateY(-1px);
-
   filter: brightness(1.08);
-
-  box-shadow:
-    0 0 36px rgba(12, 161, 255, .38),
-    inset 0 1px 0 rgba(255, 255, 255, .28);
+  box-shadow: 0 0 36px rgba(12, 161, 255, .38), inset 0 1px 0 rgba(255,255,255,.28);
 }
-
-.paypal-button:focus-visible {
-  outline: 2px solid #b7f6ff;
-  outline-offset: 3px;
-}
-
+.paypal-button:focus-visible { outline: 2px solid #b7f6ff; outline-offset: 3px; }
 .paypal-mark {
   display: grid;
   place-items: center;
-
   width: 34px;
   height: 34px;
-
   font-size: 25px;
   font-weight: 600;
   font-style: italic;
-
   border-radius: 8px;
-
-  background: rgba(255, 255, 255, .94);
+  background: rgba(255,255,255,.94);
   color: #0878ef;
 }
-
-.arrow {
-  font-size: 29px;
-  font-family: "Rajdhani", sans-serif;
-  font-weight: 300;
-}
+.arrow { font-size: 29px; font-family: "Rajdhani", sans-serif; font-weight: 300; }
 
 .pay-caption {
   margin: 1px 5px 4px;
-
   text-decoration: none;
-
   color: #29d9ff;
-
-  font-size: clamp(15px, 1.1vw, 17px);
+  font-size: 17px;
   font-weight: 500;
 }
+.pay-caption:hover { color: #9df3ff; }
 
-.pay-caption:hover {
-  color: #9df3ff;
-}
-
-/* =========================================================
-   DIVIDER
-   ========================================================= */
-
-.divider {
-  height: 1px;
-
-  margin:
-    clamp(9px, 1.2vh, 13px)
-    0
-    clamp(5px, .7vh, 7px);
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(87, 174, 245, .58),
-      rgba(87, 174, 245, .12)
-    );
-}
-
-/* =========================================================
-   CAPABILITIES
-   ========================================================= */
+.divider { height: 1px; margin: 13px 0 7px; background: linear-gradient(90deg, rgba(87,174,245,.58), rgba(87,174,245,.12)); }
 
 .capabilities h2 {
-  margin:
-    clamp(5px, .7vh, 8px)
-    0
-    clamp(9px, 1.2vh, 14px);
-
-  font-size: clamp(18px, 1.25vw, 20px);
+  margin: 8px 0 14px;
+  font-size: 20px;
   font-weight: 500;
   letter-spacing: .02em;
 }
-
 .capabilities ul {
   list-style: none;
-
   display: grid;
-
-  gap: clamp(7px, 1vh, 11px);
-
+  gap: 11px;
   margin: 0;
   padding: 0;
 }
-
 .capabilities li {
   display: grid;
-
-  grid-template-columns:
-    clamp(29px, 2vw, 34px)
-    minmax(0, 1fr);
-
+  grid-template-columns: 34px 1fr;
   align-items: center;
-
   color: #c4d8f2;
-
-  font-size: clamp(16px, 1.2vw, 18px);
+  font-size: 18px;
   line-height: 1.25;
 }
-
 .feature-icon {
   color: #bfeaff;
-
-  font-size: clamp(18px, 1.4vw, 21px);
-
+  font-size: 21px;
   text-align: center;
 }
-
-/* =========================================================
-   SIGN-IN ROW
-   ========================================================= */
 
 .signin-row {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-
   gap: 7px;
-
   color: #aec5df;
-
-  font-size: clamp(15px, 1.1vw, 17px);
+  font-size: 17px;
 }
-
 .signin-link {
   border: 0;
-
   padding: 3px 5px;
-
   color: #28d9ff;
   background: transparent;
-
   cursor: pointer;
-
-  font-size: clamp(14px, 1vw, 15px);
+  font-size: 15px;
   font-weight: 500;
 }
-
-.signin-link:hover {
-  color: #a7f4ff;
-}
-
-.signin-link:focus-visible {
-  outline: 1px solid var(--focus);
-  outline-offset: 3px;
-
-  border-radius: 4px;
-}
-
-/* =========================================================
-   STATUS
-   ========================================================= */
+.signin-link:hover { color: #a7f4ff; }
+.signin-link:focus-visible { outline: 1px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
 
 .status-message {
   min-height: 1.35em;
-
   margin: 3px 0 -2px;
-
   color: #a9d7f6;
-
-  font-size: clamp(14px, 1vw, 15px);
+  font-size: 15px;
 }
-
-.status-message.error {
-  color: #ffd0d7;
-}
-
-/* =========================================================
-   TAGLINE
-   ========================================================= */
+.status-message.error { color: #ffd0d7; }
 
 .tagline {
   position: absolute;
-
-  right: clamp(18px, 4.5vw, 88px);
-  bottom: clamp(18px, 4.5vh, 60px);
-
-  z-index: 2;
-
+  right: 4.5vw;
+  bottom: 4.5vh;
   display: flex;
   align-items: center;
-
   gap: 14px;
-
-  max-width: calc(100vw - 36px);
-
   margin: 0;
-
   color: #62cfff;
-
   font-family: "Orbitron", sans-serif;
-  font-size: clamp(9px, .72vw, 11px);
+  font-size: 11px;
   letter-spacing: .22em;
-
   opacity: .85;
 }
-
-.tagline span {
-  width: clamp(34px, 4vw, 58px);
-  height: 1px;
-
-  flex-shrink: 0;
-
-  background: #368ccb;
-}
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
+.tagline span { width: 58px; height: 1px; background: #368ccb; }
 
 .sr-only {
   position: absolute;
-
   width: 1px;
   height: 1px;
-
   padding: 0;
   margin: -1px;
-
   overflow: hidden;
-
-  clip: rect(0, 0, 0, 0);
-
+  clip: rect(0,0,0,0);
   white-space: nowrap;
-
   border: 0;
 }
-
-/* =========================================================
-   MEDIUM WIDTH
-   ========================================================= */
 
 @media (max-width: 1100px) {
   .hero {
     align-items: flex-start;
-
-    padding:
-      clamp(30px, 5vh, 46px)
-      34px
-      clamp(48px, 8vh, 70px);
-
+    padding: 46px 34px 70px;
     background-position: 59% center;
   }
-
-  .auth-card {
-    width: min(600px, 59vw);
-  }
+  .auth-card { width: min(600px, 59vw); }
 }
-
-/* =========================================================
-   TABLET / NARROW DISPLAY
-   ========================================================= */
 
 @media (max-width: 780px) {
   .hero {
-    width: 100%;
-
-    min-height: 100vh;
-    min-height: 100dvh;
-
-    padding:
-      24px
-      18px
-      72px;
-
+    min-height: 100svh;
+    padding: 24px 18px 72px;
     align-items: center;
-
     background-position: 53% center;
-
-    overflow-y: auto;
   }
-
   .shade {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(0, 7, 24, .72),
-        rgba(0, 7, 24, .46)
-      );
+    background: linear-gradient(90deg, rgba(0,7,24,.72), rgba(0,7,24,.46));
   }
-
-  .auth-card {
-    width: min(100%, 590px);
-
-    max-height: none;
-
-    padding: 28px 22px;
-  }
-
-  .tagline {
-    right: 18px;
-    bottom: 18px;
-
-    font-size: 9px;
-  }
+  .auth-card { width: min(100%, 590px); padding: 28px 22px; }
+  .tagline { right: 18px; bottom: 18px; font-size: 9px; }
 }
-
-/* =========================================================
-   PHONE / VERY NARROW DISPLAY
-   ========================================================= */
 
 @media (max-width: 460px) {
-  .hero {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .auth-card {
-    width: 100%;
-
-    padding: 22px 18px;
-
-    border-radius: 17px;
-  }
-
-  h1 {
-    font-size: 29px;
-  }
-
-  .lead {
-    font-size: 17px;
-  }
-
-  .field {
-    min-height: 56px;
-  }
-
-  .field input {
-    height: 54px;
-
-    font-size: 18px;
-  }
-
-  .paypal-button {
-    min-height: 62px;
-
-    padding: 0 17px;
-  }
-
-  .capabilities li {
-    grid-template-columns: 29px minmax(0, 1fr);
-
-    font-size: 16px;
-  }
-
-  .tagline {
-    display: none;
-  }
+  .auth-card { border-radius: 17px; }
+  h1 { font-size: 29px; }
+  .lead { font-size: 17px; }
+  .field { min-height: 56px; }
+  .field input { height: 54px; font-size: 18px; }
+  .paypal-button { min-height: 62px; padding: 0 17px; }
+  .capabilities li { font-size: 16px; grid-template-columns: 29px 1fr; }
+  .tagline { display: none; }
 }
-
-/* =========================================================
-   SHORT DISPLAY HEIGHT
-   Important for 720p displays and browser chrome.
-   ========================================================= */
-
-@media (max-height: 760px) {
-  .hero {
-    align-items: flex-start;
-
-    min-height: 100vh;
-    min-height: 100dvh;
-
-    padding-top: 18px;
-    padding-bottom: 18px;
-
-    overflow-y: auto;
-  }
-
-  .auth-card {
-    max-height: none;
-
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-
-  .lead {
-    margin-bottom: 18px;
-  }
-
-  .signin-form {
-    gap: 9px;
-  }
-
-  .field {
-    min-height: 52px;
-  }
-
-  .field input {
-    height: 50px;
-  }
-
-  .paypal-button {
-    min-height: 58px;
-  }
-
-  .capabilities ul {
-    gap: 7px;
-  }
-
-  .divider {
-    margin-top: 8px;
-    margin-bottom: 5px;
-  }
-}
-
-/* =========================================================
-   VERY SHORT DISPLAY
-   ========================================================= */
-
-@media (max-height: 620px) {
-  .auth-card {
-    padding: 18px 22px;
-  }
-
-  .eyebrow {
-    margin-bottom: 5px;
-  }
-
-  .lead {
-    margin-top: 7px;
-    margin-bottom: 12px;
-  }
-
-  .paypal-button {
-    min-height: 52px;
-  }
-
-  .capabilities h2 {
-    margin-bottom: 7px;
-  }
-
-  .capabilities ul {
-    gap: 5px;
-  }
-
-  .tagline {
-    display: none;
-  }
-}
-
-/* =========================================================
-   LARGE FULL-HD / TV DISPLAY
-   ========================================================= */
-
-@media (min-width: 1920px) {
-  .auth-card {
-    /*
-     * Prevent interface looking disproportionately small
-     * on large television displays.
-     */
-    width: min(31vw, 660px);
-  }
-
-  .hero {
-    padding-left: clamp(72px, 6vw, 130px);
-    padding-right: clamp(72px, 6vw, 130px);
-  }
-}
-
-/* =========================================================
-   4K / VERY LARGE DISPLAY
-   ========================================================= */
-
-@media (min-width: 3000px) {
-  .auth-card {
-    width: min(28vw, 780px);
-
-    padding: clamp(44px, 2vw, 64px);
-  }
-
-  h1 {
-    font-size: clamp(46px, 2vw, 62px);
-  }
-
-  .lead {
-    font-size: clamp(21px, 1vw, 26px);
-  }
-
-  .field input {
-    font-size: clamp(20px, .8vw, 24px);
-  }
-
-  .paypal-button {
-    font-size: clamp(22px, .9vw, 27px);
-  }
-}
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition: none !important;
-  }
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
-```
